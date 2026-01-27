@@ -14,19 +14,20 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navView = findViewById(R.id.bottom_navigation);
 
-        // Set default fragment to Dashboard
-        loadFragment(new DashboardPlaceholder());
+        // FIX 1: Use the actual DashboardFragment class as the default
+        loadFragment(new DashboardFragment());
 
         navView.setOnItemSelectedListener(item -> {
             Fragment selectedFragment = null;
             int id = item.getItemId();
 
+            // FIX 2: Map menu IDs to their actual Fragment classes
             if (id == R.id.navigation_dashboard) {
-                selectedFragment = new DashboardPlaceholder();
+                selectedFragment = new DashboardFragment();
             } else if (id == R.id.navigation_add) {
                 selectedFragment = new AddExpenseFragment();
             } else if (id == R.id.navigation_insights) {
-                selectedFragment = new InsightsPlaceholder();
+                selectedFragment = new InsightsFragment();
             }
 
             return loadFragment(selectedFragment);
@@ -44,7 +45,3 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 }
-
-// Simple Placeholders for the team to replace later
-class DashboardPlaceholder extends Fragment {}
-class InsightsPlaceholder extends Fragment  {}

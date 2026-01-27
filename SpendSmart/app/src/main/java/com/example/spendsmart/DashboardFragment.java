@@ -8,15 +8,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.spendsmart.R;
-
-
 public class DashboardFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // This links the Java class to fragment_insights.xml
-        return inflater.inflate(R.layout.fragment_insights, container, false);
+        // FIX: Change R.layout.fragment_insights to R.layout.fragment_dashboard
+        return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 }
